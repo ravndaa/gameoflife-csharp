@@ -1,6 +1,6 @@
-# Start by using this template
+# Start by using this repository as a fork
 
-Start by [using this template](https://github.com/netbrain/github-workflow-kata/generate)
+Start by [forking this repo](https://github.com/netbrain/github-workflow-kata/fork)
 
 # Game of life 
 
