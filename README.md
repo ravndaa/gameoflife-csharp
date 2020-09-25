@@ -1,6 +1,6 @@
-# Fork it
+# Start by using this template
 
-Start by forking this repository.
+Start by [using this template](https://github.com/netbrain/github-workflow-kata/generate)
 
 # Game of life 
 
@@ -138,3 +138,5 @@ This should work fine, and if you read the returned output from the push command
 This is when you need to invite your buddy to review your change. If the review fails, you need to checkout the offending branch, and do some more work as per the reviewers suggestions. and then re-commit and re-push.
 
 If the reviewer approves your changes, then congratulations, you have come full circle. Next up would be to rinse and repeat for every issue in your backlog. Good luck, have fun!
+
+Remember to follow along with the project board as youn make changes and iterate over issues and PR's.
