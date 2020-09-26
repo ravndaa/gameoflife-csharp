@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gameoflife.lib", "gameoflife.lib\gameoflife.lib.csproj", "{EF5FBFAB-05BD-490B-B940-0B4F21F24C10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gameoflife.app", "gameoflife.app\gameoflife.app.csproj", "{F7219F4B-C69C-4ED1-B063-BDAEF6800320}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gameoflife", "gameoflife\gameoflife.csproj", "{F7219F4B-C69C-4ED1-B063-BDAEF6800320}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gameoflife.test", "gameoflife.test\gameoflife.test.csproj", "{DD328A68-FC66-42C5-9EB8-D2CCB9D8F553}"
 EndProject

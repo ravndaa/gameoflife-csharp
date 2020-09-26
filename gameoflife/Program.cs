@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace gameoflife.app
+namespace gameoflife
 {
     class Program
     {
