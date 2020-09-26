@@ -1,4 +1,4 @@
-name: .NET Core
+name: Run Test
 
 on:
   push:
