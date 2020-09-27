@@ -1,8 +1,6 @@
-name: .NET Core
+name: dotnet core
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
