@@ -24,7 +24,7 @@ namespace gameoflife.test
             var lib = new GOL();
             var actual = lib.ParseInput(input);
 
-            Assert.IsType<GOLInput>(actual);
+            Assert.IsType<GOLData>(actual);
         }
 
         [Fact]
