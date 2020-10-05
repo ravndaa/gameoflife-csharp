@@ -61,76 +61,16 @@ namespace gameoflife.test
             Assert.Equal(width, parsedGen1output.Width);
         }
 
-        [Fact]
-        public void TestParseInput_WhenInputGenerationIsWrong()
-        {
-            string input = @"Generation E:
-4 8
-........
-....*...
-...**...
-........";
+        // testing wrong inputs, and check that we handle it by throwing exceptions we want.
+        [Theory]
+        [ClassData(typeof(WrongTestInputData))]
+        public void TestParseInput_WrongInputStrings(string input, Type customtype, string exceptionmessage){
+            
+
             var ex = Record.Exception(() => GOL.ParseInput(input));
-            Assert.IsType<IncorrectInputFormat>(ex);
-            Assert.Equal("Generation line is wrong format", ex.Message);
-
+            Assert.IsType(customtype,ex);
+            Assert.Equal(exceptionmessage, ex.Message);
         }
-
-        [Fact]
-        public void TestParseInput_WhenInputBoardWidthIsWrong()
-        {
-            string input = @"Generation 1:
-5 E
-........
-....*...
-...**...
-........";
-            var ex = Record.Exception(() => GOL.ParseInput(input));
-            Assert.IsType<IncorrectInputFormat>(ex);
-            Assert.Equal("Board width not found", ex.Message);
-
-        }
-
-        [Fact]
-        public void TestParseInput_WhenInputBoardHeightIsWrong()
-        {
-            string input = @"Generation 1:
-E 6
-........
-....*...
-...**...
-........";
-            var ex = Record.Exception(() => GOL.ParseInput(input));
-            Assert.IsType<IncorrectInputFormat>(ex);
-            Assert.Equal("Board height not found", ex.Message);
-
-        }
-
-        [Fact]
-        public void TestParseInput_WhenInputBoardDoesNotMatchHeightIsWrong() {
-            string input = @"Generation 1:
-4 8
-........
-....*...
-...**...";
-            var ex = Record.Exception(() => GOL.ParseInput(input));
-            Assert.IsType<IncorrectInputFormat>(ex);
-            Assert.Equal("input length = 3 not equal to supplied board height = 4", ex.Message);
-        }
-
-        [Fact]
-        public void TestParseInput_WhenInputBoardDoesNotMatchWidthIsWrong() {
-            string input = @"Generation 1:
-4 9
-........
-....*...
-...**...
-........";
-            var ex = Record.Exception(() => GOL.ParseInput(input));
-            Assert.IsType<IncorrectInputFormat>(ex);
-            Assert.Equal("board width for line:0 is not 9", ex.Message);
-        }
-
 
     }
 }

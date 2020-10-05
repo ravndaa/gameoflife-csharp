@@ -35,10 +35,6 @@ namespace gameoflife.lib
             return output;
         }
 
-        public static string GenerateNextGeneration(GolData input)
-        {
-            throw new NotImplementedException("coming soon");
-        }
 
         // extract the generation number and return it.
         // throw an error if not correct syntax.
@@ -65,6 +61,7 @@ namespace gameoflife.lib
 
 
             var h = input.IndexOf(' ');
+            if(h == -1 ) throw new IncorrectInputFormat("Incorrect boardsize line.");
             var w = h + 1;
 
 
