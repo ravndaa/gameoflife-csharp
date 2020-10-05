@@ -45,7 +45,7 @@ namespace gameoflife.test
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
-    
+
 
     public class WrongTestInputData : IEnumerable<object[]>
     {
@@ -65,35 +65,77 @@ namespace gameoflife.test
 ...**...
 ........", typeof(IncorrectInputFormat), "Incorrect boardsize line." };
 
-        yield return new object[] { @"Generation 1:
+            yield return new object[] { @"Generation 1:
 4 E
 ........
 ....*...
 ...**...
 ........", typeof(IncorrectInputFormat), "Board width not found" };
 
-        yield return new object[] { @"Generation 1:
+            yield return new object[] { @"Generation 1:
 E 8
 ........
 ....*...
 ...**...
 ........", typeof(IncorrectInputFormat), "Board height not found" };
 
-yield return new object[] { @"Generation 1:
+            yield return new object[] { @"Generation 1:
 4 8
 ........
 ....*...
 ...**...", typeof(IncorrectInputFormat), "input length = 3 not equal to supplied board height = 4" };
 
-yield return new object[] { @"Generation 1:
+            yield return new object[] { @"Generation 1:
 4 9
 ........
 ....*...
 ...**...
 ........", typeof(IncorrectInputFormat), "board width for line:0 is not 9" };
+
+            yield return new object[] { @"Generation 1:
+4 8
+........
+....*S..
+...**...
+........", typeof(IncorrectBoardCharacters), "row 1 contains character = S" };
         }
 
-        
+
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    }
+
+
+    //
+    //
+    //
+
+    public class TestDataNextGeneration : IEnumerable<object[]>
+    {
+        public IEnumerator<object[]> GetEnumerator()
+        {
+            yield return new object[] {  new GolData { Generation = 1, Width = 8, Height = 4, Board = new char[][] {
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','*','*','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'} }}, 2, 8, 4, new char[][] {
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'} }
+            };
+            // OK if only Rule : As a dead cell I will regain life if i have exactly three neighbours
+           yield return new object[] {  new GolData { Generation = 1, Width = 8, Height = 4, Board = new char[][] {
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','.','*','.','.','.'},
+                new char[] {'.','.','.','*','*','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'} }}, 2, 8, 4, new char[][] {
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','*','.','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'},
+                new char[] {'.','.','.','.','.','.','.','.'} }
+            };
+        }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }

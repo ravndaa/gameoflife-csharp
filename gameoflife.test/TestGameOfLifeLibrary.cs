@@ -41,6 +41,22 @@ namespace gameoflife.test
             Assert.Equal(correctParsedGeneration1input.Board, parsedGen1output.Board);
         }
 
+
+        [Theory]
+        [ClassData(typeof(TestDataNextGeneration))]
+        public void TestNextGeneration_Output(GolData oldGeneration, int generationNumber, int width, int height, char[][] board) {
+            
+            var nextGeneration = GOL.CreateNextGeneration(oldGeneration);
+
+            
+
+            Assert.Equal(generationNumber, nextGeneration.Generation);
+            Assert.Equal(height, nextGeneration.Height);
+            Assert.Equal(width, nextGeneration.Width);
+            Assert.Equal(board, nextGeneration.Board);
+            
+        }
+
         [Fact]
         public void TestParseInput_Emptyinput()
         {
